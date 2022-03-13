@@ -5,12 +5,17 @@ library(stringr)
 library(Biostrings)
 source('functions_tigger.R')
 
-
+# vec of strings racheli
 germline <- readIgFasta("C:/Users/wrach/OneDrive - Bar-Ilan University/Documents/ביואינפורמטיקה/פרוייקט/tiggerTable/IGHV_gap_full.fasta")
 # get germline reference
 dataP1 <- read.table(file = "C:/Users/wrach/OneDrive - Bar-Ilan University/Documents/ביואינפורמטיקה/פרוייקט/tiggerTable/P1_I64_S1_collapsed.tsv", sep = '\t', header = TRUE)
-gene_allele_all <- dataP1 %>% mutate(v_gene = getGene(v_call, strip_d = F)) %>% group_by(v_gene) %>% summarise(v_call = paste0(unique(v_call), collapse = ","))
 
+# vec of strings eden
+germline <- readIgFasta("C:/Users/Eden/OneDrive - Bar-Ilan University/Desktop/tigger/IGHV_gap_full.fasta")
+# get germline reference
+dataP1 <- read.table(file = "C:/Users/Eden/OneDrive - Bar-Ilan University/Desktop/tigger/P1_I64_S1_collapsed.tsv", sep = '\t', header = TRUE)
+
+gene_allele_all <- dataP1 %>% mutate(v_gene = getGene(v_call, strip_d = F)) %>% group_by(v_gene) %>% summarise(v_call = paste0(unique(v_call), collapse = ","))
 
 #get rid of multiple assignment, starts without . - starts in first position, # no N at all, # consensus_count = 2
 filtered_data  <- dataP1[!grepl(",", dataP1$v_call),]
