@@ -100,13 +100,14 @@ for (g in genes) {
   }
 }
 
-
+# racheli
+# write.csv(novel_list_df,"C:/Users/wrach/OneDrive - Bar-Ilan University/Documents/ביואינפורמטיקה/פרוייקט/tiggerTable/novel_list_df20_02.csv", row.names = FALSE)
+# eden
 #write.csv(final_df,"C:/Users/wrach/OneDrive - Bar-Ilan University/Documents/ביואינפורמטיקה/פרוייקט/tiggerTable/final_df20_02.csv", row.names = FALSE)
 
 library(data.table)
 novel_list_df <- data.table::rbindlist(novel_list) #df with the results from findNovelAllele
 #write.csv(novel_list_df,"C:/Users/wrach/OneDrive - Bar-Ilan University/Documents/ביואינפורמטיקה/פרוייקט/tiggerTable/novel_list_df20_02.csv", row.names = FALSE)
-
 
 
 # check<-data[data$v_call == "IGHV4-4*02",]
